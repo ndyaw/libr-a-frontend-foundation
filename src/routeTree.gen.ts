@@ -10,33 +10,141 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as LibraryRouteImport } from './routes/library'
+import { Route as MyLibraryRouteImport } from './routes/my-library'
+import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as ReadingGoalsRouteImport } from './routes/reading-goals'
+import { Route as ReadingHistoryRouteImport } from './routes/reading-history'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as BookIdRouteImport } from './routes/book.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LibraryRoute = LibraryRouteImport.update({
+  id: '/library',
+  path: '/library',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MyLibraryRoute = MyLibraryRouteImport.update({
+  id: '/my-library',
+  path: '/my-library',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReadingGoalsRoute = ReadingGoalsRouteImport.update({
+  id: '/reading-goals',
+  path: '/reading-goals',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReadingHistoryRoute = ReadingHistoryRouteImport.update({
+  id: '/reading-history',
+  path: '/reading-history',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookIdRoute = BookIdRouteImport.update({
+  id: '/book/$id',
+  path: '/book/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRoute
+  '/library': typeof LibraryRoute
+  '/my-library': typeof MyLibraryRoute
+  '/profile': typeof ProfileRoute
+  '/reading-goals': typeof ReadingGoalsRoute
+  '/reading-history': typeof ReadingHistoryRoute
+  '/settings': typeof SettingsRoute
+  '/book/$id': typeof BookIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRoute
+  '/library': typeof LibraryRoute
+  '/my-library': typeof MyLibraryRoute
+  '/profile': typeof ProfileRoute
+  '/reading-goals': typeof ReadingGoalsRoute
+  '/reading-history': typeof ReadingHistoryRoute
+  '/settings': typeof SettingsRoute
+  '/book/$id': typeof BookIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRoute
+  '/library': typeof LibraryRoute
+  '/my-library': typeof MyLibraryRoute
+  '/profile': typeof ProfileRoute
+  '/reading-goals': typeof ReadingGoalsRoute
+  '/reading-history': typeof ReadingHistoryRoute
+  '/settings': typeof SettingsRoute
+  '/book/$id': typeof BookIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/dashboard'
+    | '/library'
+    | '/my-library'
+    | '/profile'
+    | '/reading-goals'
+    | '/reading-history'
+    | '/settings'
+    | '/book/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/dashboard'
+    | '/library'
+    | '/my-library'
+    | '/profile'
+    | '/reading-goals'
+    | '/reading-history'
+    | '/settings'
+    | '/book/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/dashboard'
+    | '/library'
+    | '/my-library'
+    | '/profile'
+    | '/reading-goals'
+    | '/reading-history'
+    | '/settings'
+    | '/book/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DashboardRoute: typeof DashboardRoute
+  LibraryRoute: typeof LibraryRoute
+  MyLibraryRoute: typeof MyLibraryRoute
+  ProfileRoute: typeof ProfileRoute
+  ReadingGoalsRoute: typeof ReadingGoalsRoute
+  ReadingHistoryRoute: typeof ReadingHistoryRoute
+  SettingsRoute: typeof SettingsRoute
+  BookIdRoute: typeof BookIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +156,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/library': {
+      id: '/library'
+      path: '/library'
+      fullPath: '/library'
+      preLoaderRoute: typeof LibraryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/my-library': {
+      id: '/my-library'
+      path: '/my-library'
+      fullPath: '/my-library'
+      preLoaderRoute: typeof MyLibraryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reading-goals': {
+      id: '/reading-goals'
+      path: '/reading-goals'
+      fullPath: '/reading-goals'
+      preLoaderRoute: typeof ReadingGoalsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reading-history': {
+      id: '/reading-history'
+      path: '/reading-history'
+      fullPath: '/reading-history'
+      preLoaderRoute: typeof ReadingHistoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/book/$id': {
+      id: '/book/$id'
+      path: '/book/$id'
+      fullPath: '/book/$id'
+      preLoaderRoute: typeof BookIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DashboardRoute: DashboardRoute,
+  LibraryRoute: LibraryRoute,
+  MyLibraryRoute: MyLibraryRoute,
+  ProfileRoute: ProfileRoute,
+  ReadingGoalsRoute: ReadingGoalsRoute,
+  ReadingHistoryRoute: ReadingHistoryRoute,
+  SettingsRoute: SettingsRoute,
+  BookIdRoute: BookIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
